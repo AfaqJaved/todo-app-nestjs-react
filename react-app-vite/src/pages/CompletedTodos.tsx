@@ -19,7 +19,7 @@ const CompeletedTodos = () => {
   const getAllCompletedTodos = async () => {
     const userId = getLoginInfo()?.userId;
     if (userId != null) {
-      const response = await custom_axios.get(ApiConstants.TODO.FIND_COMPLETED(userId));
+      const response = await custom_axios.get(ApiConstants.TODO.FIND_COMPLETED(userId), { headers: { Authorization: "Bearer " + localStorage.getItem("token") } });
       setTodos(response.data);
     } else {
       toast.info("Sorry you are not authenticated");
@@ -42,7 +42,7 @@ const CompeletedTodos = () => {
                 key={todo.id}
                 dateTime={todo.date}
                 deleteTodo={async () => {
-                  const response = await custom_axios.delete(ApiConstants.TODO.DELETE(todo.id));
+                  const response = await custom_axios.delete(ApiConstants.TODO.DELETE(todo.id), { headers: { Authorization: "Bearer " + localStorage.getItem("token") } });
                   getAllCompletedTodos();
                   toast.success("Todo Deleted Sucessfully!!");
                 }}

@@ -21,6 +21,7 @@ const Login = () => {
         password: password.current.value,
       });
       localStorage.setItem("token", response.data.token);
+      dispatchEvent(new Event("storage"));
       navigate("/");
     } catch (error: any) {
       if (error.response.status == 401) toast.warn(error.response.data.message);
