@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
         host: configService.get('DATABASE_HOST'),
         port: configService.get<number>('DATABASE_PORT'),
         username: configService.get('DATABASE_USERNAME'),
-        password: configService.get('DATABASE_PASSWORD'),
+        password: configService.get('DATABASE_PASSWORD') || "",
         synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
