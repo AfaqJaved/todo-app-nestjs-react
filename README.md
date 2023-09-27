@@ -19,6 +19,8 @@
 
 ## NestJs Configuration
 
+Live At https://todo.afaqjaved.com
+
 ```
 Provide Postgres Parameters
 in .local.env file accordingly :
